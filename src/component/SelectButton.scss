@@ -1,0 +1,33 @@
+.select-button-item {
+    display: flex;
+    flex-direction: row;
+    height: 28px;
+    width: 100px;
+    border: solid 1px #123D70;
+    border-radius: 4px;
+    overflow:hidden;
+    .select-button {
+        background: #123D70;
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        // border-radius: 8px;
+        // overflow:hidden
+        a {
+            text-align: center;
+        }
+    }
+
+    .un-select-button {
+        display: flex;
+        flex:1;
+        align-items: center;
+        color: #123D70;
+        justify-content: center;
+        a {
+            text-align: center;
+        }
+    }
+}
