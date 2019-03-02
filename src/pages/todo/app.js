@@ -24,9 +24,11 @@ import {
 	filtAction,
 	filterTodo
 } from 'store/action/filtAction'
-import Nav from "component/nav";
+
 import LineInput from "component/LineInput"
 import SelectButton from "component/SelectButton"
+import ExpandView from "component/ExpandView"
+import SelectStickButton from "component/SelectStickButton"
 
 class App extends React.Component {
 	constructor(props){
@@ -109,13 +111,17 @@ class App extends React.Component {
 				<div className="base-view">
 					<LineInput title="年龄" subTitle="岁" />
 					<div className="base-view-input-item">
-						<span className="title">性别</span>
+						<span className="sex-title">性别</span>
 						<div className="fill-view"></div>
 						<SelectButton />
 					</div>
 					<LineInput title="身高" subTitle="cm" />
 					<LineInput title="体重" subTitle="kg" />
-					<LineInput title="血肌酐" subTitle="μmoI/L" />
+					{/* <LineInput title="血肌酐" subTitle="μmoI/L" />
+					 */}
+					<ExpandView
+						subView={<div style={{ height: 100 }}><SelectStickButton /></div>}
+					/>
 				</div>
 				<div className="pre-title-content">
 					<span className="pre-title">期望方案设置</span>

@@ -1,0 +1,53 @@
+.expand-view {
+    padding-left: 16px;
+    padding-right: 16px;
+    height: 56px;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding-top: 15px;
+    .expand-input-item {
+        flex: 1;
+        margin-left: 8px;
+        margin-right: 8px;
+        div {
+            flex: 1;
+        }
+    }
+    .expand-title {
+        color: #333333;
+        font-size: 1rem;
+    }
+
+    .expand-sub-title {
+
+    }
+
+    .expand-button {
+
+    }
+}
+
+.expand-true-view {
+    .expand-first-view {
+        padding-left: 16px;
+        padding-right: 16px;
+        height: 56px;
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        padding-top: 15px;
+        .expand-input-item {
+            flex: 1;
+            margin-left: 8px;
+            margin-right: 8px;
+            div {
+                flex: 1;
+            }
+        }
+        .expand-title {
+            color: #333333;
+            font-size: 1rem;
+        }
+    }
+}

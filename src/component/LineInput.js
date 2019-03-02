@@ -8,9 +8,9 @@ class LineInput extends Component {
         const { title = "年龄", subTitle = "岁", changeTextFiled, textValue } = this.props;
         return (
             <div className="line-input-item">
-                <span className="title">{title}</span>
+                <span className="line-title">{title}</span>
                 <TextField onChange={this.changeTextField} className="input-item" id="age-input" value={textValue} placeholder="请输入" />
-                <span className="sub-title">{subTitle}</span>
+                <span className="line-sub-title">{subTitle}</span>
             </div>
         )
     }
