@@ -37,12 +37,15 @@
   },
   "dependencies": {
     "@material-ui/core": "^3.9.2",
+    "antd": "^3.14.0",
+    "axios": "^0.18.0",
     "bulma": "^0.7.1",
     "express": "^4.16.3",
     "opn": "^5.4.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^6.0.0",
+    "react-virtualized": "^9.21.0",
     "redux": "^4.0.1"
   }
 }

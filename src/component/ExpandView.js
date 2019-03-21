@@ -7,12 +7,12 @@ class ExpandView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isExpand: true
+            isExpand: false
         }
     }
 
     render() {
-        const { title = "年龄", subTitle = "岁", changeTextFiled, textValue, subView = null } = this.props;
+        const { title = "年龄", subTitle = "岁", textValue, subView = null } = this.props;
 
         const { isExpand } = this.state;
         if (isExpand) {
@@ -20,9 +20,11 @@ class ExpandView extends Component {
                 <div className="expand-true-view">
                     <div className="expand-first-view">
                         <span className="expand-title">{title}</span>
-                        <TextField onChange={this.changeTextField} className="expand-input-item" id="age-input" value={textValue} placeholder="请输入" />
+                        {this.renderTextInput()}
                         <span className="expand-sub-title">{subTitle}</span>
-                        <a className="expand-button" onClick={this.expandClick.bind(this)}>向下</a>
+                        <a className="expand-button" onClick={this.expandClick.bind(this)}>
+                            收起
+                        </a>
                     </div>
                     {subView}
                 </div>
@@ -32,9 +34,11 @@ class ExpandView extends Component {
             return (
                 <div className="expand-view">
                     <span className="expand-title">{title}</span>
-                    <TextField onChange={this.changeTextField} className="expand-input-item" id="age-input" value={textValue} placeholder="请输入" />
+                    {this.renderTextInput()}
                     <span className="expand-sub-title">{subTitle}</span>
-                    <a className="expand-button" onClick={this.expandClick.bind(this)}>向下</a>
+                    <a className="expand-button" onClick={this.expandClick.bind(this)}>
+                        展开
+                    </a>
                 </div>
             )
         }
@@ -42,11 +46,32 @@ class ExpandView extends Component {
         
     }
 
+    renderTextInput() {
+        const { showTextInput = true, textValue } = this.props
+        if (showTextInput) {
+            return (
+                <TextField onChange={this.changeTextField.bind(this)} className="expand-input-item" id="age-input" value={textValue} placeholder="请输入" />
+            )
+        } else {
+            return (
+                <div style={{ flex: 1 }}>
+
+                </div>
+            )
+        }
+    }
+
     expandClick() {
         console.log('test')
         this.setState({
             isExpand: !this.state.isExpand
         })
+    }
+
+    changeTextField(event) {
+        const { onChangeText } = this.props;
+        console.log('changeTextFiled', event.target.value)
+        onChangeText(event.target.value)
     }
 }
 
