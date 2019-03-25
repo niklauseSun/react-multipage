@@ -63,6 +63,11 @@ class App extends React.Component {
 			// Infusion time
 			infusionTime: "", // 输注时间
 			valley: "", // 测定谷浓度
+
+			adjustDose: "", //调整剂量
+			adjustDosingInterval: "", // 调整给药间隔
+			adjustInfusionTime: "", // 调整输注时间
+
 			targetFirst: "",
 			targetSecond: "",
 			micOpen: false,
@@ -329,9 +334,9 @@ class App extends React.Component {
 						</div>
 					}
 				/>
-				<LineInput title="剂量" subTitle="mg" textValue={this.state.dose} onChangeText={this.changeDose.bind(this)}/>
-				<LineInput title="给药间隔" subTitle="hrs" textValue={this.state.dosingInterval} onChangeText={this.changeDosingInterval.bind(this)} />
-				<LineInput title="输注时间" subTitle="hrs" textValue={this.state.infusionTime} onChangeText={this.changeInfusionTime.bind(this)} />
+				<LineInput title="剂量" subTitle="mg" textValue={this.state.adjustDose} onChangeText={this.changeAdjustDose.bind(this)}/>
+				<LineInput title="给药间隔" subTitle="hrs" textValue={this.state.adjustDosingInterval} onChangeText={this.changeAdjustDosingInterval.bind(this)} />
+				<LineInput title="输注时间" subTitle="hrs" textValue={this.state.adjustInfusionTime} onChangeText={this.changeAdjustInfusionTime.bind(this)} />
 			</div>
 		)
 	}
@@ -498,15 +503,33 @@ class App extends React.Component {
 		})
 	}
 
+	changeAdjustDose(val) {
+		this.setState({
+			adjustDose: val
+		})
+	}
+
 	changeDosingInterval(val) {
 		this.setState({
 			dosingInterval: val
 		})
 	}
 
+	changeAdjustDosingInterval(val) {
+		this.setState({
+			adjustDosingInterval: val
+		})
+	}
+
 	changeInfusionTime(val) {
 		this.setState({
 			infusionTime: val
+		})
+	}
+
+	changeAdjustInfusionTime(val) {
+		this.setState({
+			adjustInfusionTime: val
 		})
 	}
 
@@ -540,17 +563,24 @@ class App extends React.Component {
 		})
 	}
 
+	recordAction() {
+		console.log('recordAction')
+	}
 
 	saveData() {
 		const { calculateType, value } = this.state;
 		if (parseInt(calculateType) === 0 && value === 0) {
 			// 初始记录
+			console.log('初始记录')
 		} else if (parseInt(calculateType) === 0 && value === 1 ) {
 			// 调整记录
+			console.log('调整记录')
 		} else if (parseInt(calculateType) === 1 && value === 0) {
 			// 初始浓度
+			console.log('初始浓度')
 		} else if (parseInt(calculateType) === 1 && value === 1) {
 			// 调整浓度
+			console.log('调整浓度')
 		}
 	}
 }
