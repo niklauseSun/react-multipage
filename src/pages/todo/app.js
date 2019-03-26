@@ -17,18 +17,14 @@ import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-
-import {
-	filtAction,
-	filterTodo
-} from 'store/action/filtAction'
 
 import LineInput from "component/LineInput"
 import SelectButton from "component/SelectButton"
 import ExpandView from "component/ExpandView"
 import SelectStickButton from "component/SelectStickButton"
+
+import { Toast } from 'antd-mobile'
 
 const serum = ['μmoI/L', 'mg/dL']
 const targetRange = ["10-15 mg/L", "15-20 mg/L", "自定义"];
@@ -170,8 +166,8 @@ class App extends React.Component {
 					{value === 0 && this.renderBegin()}
 					{value === 1 && this.renderAdjust()}
 					<div className="foot-button">
-						<div onClick={this.resetAction} className="reset-button"><span>重置</span></div>
-						<div onClick={this.recordAction} className="record-button"><span>记录</span></div>
+						<div onClick="resetAction" className="reset-button"><span>重置</span></div>
+						<div onClick="recordAction" className="record-button"><span>记录</span></div>
 					</div>
 					{this.renderTargetDialog()}
 					{this.renderMicDialog()}
@@ -189,8 +185,8 @@ class App extends React.Component {
 				{value === 0 && this.renderBegin()}
 				{value === 1 && this.renderAdjust()}
 				<div className="foot-button">
-					<div onClick={this.resetAction} className="reset-button"><span>重置</span></div>
-					<div onClick={this.recordAction} className="record-button"><span>记录</span></div>
+					<div onClick={this.resetAction.bind(this)} className="reset-button"><span>重置</span></div>
+					<div onClick={this.recordAction.bind(this)} className="record-button"><span>记录</span></div>
 				</div>
 				{this.renderMicDialog()}
 			</div>
@@ -564,7 +560,14 @@ class App extends React.Component {
 	}
 
 	recordAction() {
-		console.log('recordAction')
+		// console.log('recordAction', this)
+		// saveData()
+
+		this.saveData()
+	}
+
+	resetAction() {
+		console.log('resetAction')
 	}
 
 	saveData() {
@@ -572,6 +575,7 @@ class App extends React.Component {
 		if (parseInt(calculateType) === 0 && value === 0) {
 			// 初始记录
 			console.log('初始记录')
+
 		} else if (parseInt(calculateType) === 0 && value === 1 ) {
 			// 调整记录
 			console.log('调整记录')
@@ -582,6 +586,8 @@ class App extends React.Component {
 			// 调整浓度
 			console.log('调整浓度')
 		}
+		alert('已成功记录，请在数据页中查找')
+		// Toast.show('已成功记录，请在数据页中查找')
 	}
 }
 
