@@ -68,6 +68,13 @@ module.exports = (env, argv) => ({
 	devServer: {
 		port: 3100,
 		open: true,
+		proxy: {
+			'/Huashan.WebAPI': {
+				target: 'https://wangu.91xiaoapp.com:8081',
+				changeOrigin: true,
+				secure: false
+			}
+		}
 	},
 	resolve:{
 		alias:{
