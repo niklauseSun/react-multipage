@@ -6,30 +6,13 @@
  *******************************/
 
 import React, { Component } from "react";
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 
 import "./app.scss"
 import { List } from 'antd';
-// import AxiosUtil from '../../AxiosUtil'
 import axios from 'axios'
 
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-
-// import qs from 'query-string'
-
-const data = [
-	'Racing car sprays burning fuel into crowd.',
-	'Japanese princess to wed commoner.',
-	'Australian walks 100km after outback crash.',
-	'Man charged over missing wedding girl.',
-	'Los Angeles battles huge wildfires.',
-];
-
-// axios.defaults.baseURL = 'https://wangu.91xiaoapp.com:8081/Huashan.WebAPI/'
-// axios.defaults.headers.post['content-Type'] = 'appliction/x-www-form-urlencoded';
-// axios.defaults.headers.common['Accept'] = 'application/json';
 axios.defaults.headers.common['Accept'] = 'application/json';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
@@ -39,7 +22,7 @@ export default class App extends Component {
 		this.state = {
 			value: 0,
 			baseUrl: "https://wangu.91xiaoapp.com:8081/Huashan.WebAPI/",
-			sessionId: null,
+			sessionId: "d565d0c4a419487a9c9c068f3afccdad",
 			dataIndex: 3,
 			totalPage: 1,
 			pageIndex: 0,
@@ -461,6 +444,10 @@ export default class App extends Component {
 				}}
 			/>
 		)
+	}
+
+	renderPKView () {
+		
 	}
 
 	fetchData() {
