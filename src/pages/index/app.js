@@ -21,9 +21,9 @@ export default class App extends Component {
 		super(props);
 		this.state = {
 			value: 0,
-			baseUrl: "https://wangu.91xiaoapp.com:8081/Huashan.WebAPI/",
-			sessionId: "d565d0c4a419487a9c9c068f3afccdad",
-			dataIndex: 3,
+			baseUrl: null,
+			sessionId: "602f2775c25c4466af8a8086d5300a58",
+			dataIndex: 0,
 			totalPage: 1,
 			pageIndex: 0,
 			data: [],
@@ -606,14 +606,14 @@ export default class App extends Component {
 
 	axiosData(index) {
 		const { sessionId, baseUrl, dataIndex } = this.state;
-		let url = baseUrl + 'API/WxApp/Medicines'
+		let url = '/Huashan.WebAPI/API/WxApp/QuerySolutions'
 		const data = {
 			pageIndex: index,
 			pageSize: 10,
 			CalcType: dataIndex
 		}
 
-		console.log('axios', data)
+		console.log('axios', data, sessionId)
 
 		axios({
 			url: url,
